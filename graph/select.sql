@@ -1,7 +1,7 @@
 
 -- degree of every vertex of a graph based on filter.
 
-select g.id,
+select g.id as graph_id,
     coalesce(v.name, -1) as node, -- -1 stands for no node in graph.
     count(e.id) filter (where e.to_vertex = v.id) +
     count(e.id) filter (where e.from_vertex = v.id) as degree
@@ -10,7 +10,7 @@ from graph g left join vertex v on
 left join edge e on 
     v.id = e.to_vertex
     or v.id = e.from_vertex
-where g.id = 5
+where g.id = 4
 group by 1, 2
 order by 1, 2;
 

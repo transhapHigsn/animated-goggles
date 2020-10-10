@@ -4,7 +4,6 @@ BEGIN;
 
 create table graph (
     id serial primary key
-    -- name varchar(10) not null, -- keeping this so you can use sequence.
 );
 
 create table vertex (
@@ -14,8 +13,6 @@ create table vertex (
     constraint fk_graph_id foreign key (graph_id) references graph(id),
     unique (graph_id, name)
 );
--- add fk
--- add unique constraint
 
 create table edge (
     id serial primary key,
@@ -25,9 +22,10 @@ create table edge (
     constraint fk_to_vertex foreign key (to_vertex) references vertex(id),
     constraint fk_from_vertex foreign key (from_vertex) references vertex(id)
 );
--- add fk
 
 -- create graph entries
+-- directly providing id instead of using sequence because of ease of implementation.
+-- otherwise will have to track those values as well, also, not exactly sure how to do that using just sql.
 
 -- graph 1 (sample)
 
