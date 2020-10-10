@@ -10,7 +10,7 @@ from graph g left join vertex v on
 left join edge e on 
     v.id = e.to_vertex
     or v.id = e.from_vertex
-where g.id = 4
+where g.id = 6
 group by 1, 2
 order by 1, 2;
 

@@ -99,4 +99,15 @@ insert into edge (id, from_vertex, to_vertex, wght) values (26, 14, 14, 3);
 insert into edge (id, from_vertex, to_vertex, wght) values (27, 14, 14, 4);
 insert into edge (id, from_vertex, to_vertex, wght) values (28, 14, 14, 5);
 
+-- graph 6
+
+insert into graph (id) values (6);
+insert into vertex (id, graph_id, name) values (15, 6, 1);
+insert into vertex (id, graph_id, name) values (16, 6, 2);
+
+insert into edge (id, from_vertex, to_vertex, wght) values (29, 15, 16, 2);
+insert into edge (id, from_vertex, to_vertex, wght) values (30, 16, 15, 3);
+insert into edge (id, from_vertex, to_vertex, wght) values (31, 15, 15, 1);
+insert into edge (id, from_vertex, to_vertex, wght) values (32, 16, 16, 1);
+
 COMMIT;
