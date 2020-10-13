@@ -22,7 +22,7 @@ Number of such patterns are 15 for `docomo`.
 
 ### Approaches
 
-Initially, I tried using divide-and-conquer approach to solve the above. Using this approach, I was marking every vowel as `V` and consonant as `C`. This eventually led me to conclusion that I end up using my actual solution. During the implementation, I went on to write a method that basically collects the pattern which matches the condition described in solution. Later on, I found out that I only need the length of these strings not the string itself.
+Initially, I tried using divide-and-conquer approach to solve the above. Using this approach, I was marking every vowel as `V` and consonant as `C`. This eventually led me to conclusion that I ended up using in my actual solution. During the implementation, I went on to write a method that basically collects the pattern which matches the condition described in question. Later on, I found out that I only need the length of these strings not the string itself.
 
 At this point of time, I had the solution, which will act as center logic for solution.
 
@@ -47,7 +47,7 @@ After going through some patterns, it became obvious that number of subpatterns 
 
 ### Bugs found in iteration 1
 
-- `pattern_length` variable's default value is 1 and `is_last_char_vowel` default value is `False`. Since there was no check before inccreasing pattern length if current charcater has any preceeding character, in cases where first character is vowel, it would add +1 to pattern_length even though it should not change.
+- `pattern_length` variable's default value is 1 and `is_last_char_vowel` default value is `False`. Since there was no check before increasing pattern_length if current character has any preceeding character or not, in cases where first character is vowel, it would add +1 to pattern_length even though it should not change.
 
 - For instance, `a` led to `1` instead it should be `0`.
 - Or, `ab` led to `3` instead it should be `1`.
