@@ -44,3 +44,12 @@ After going through some patterns, it became obvious that number of subpatterns 
 
 - Calculate number of subpatterns given length n. `calculate_sum`
 - Find length of individual non-overlapping patterns and store total number of patterns found. `create_final`
+
+### Bugs found in iteration 1
+
+- `pattern_length` variable's default value is 1 and `is_last_char_vowel` default value is `False`. Since there was no check before inccreasing pattern length if current charcater has any preceeding character, in cases where first character is vowel, it would add +1 to pattern_length even though it should not change.
+
+- For instance, `a` led to `1` instead it should be `0`.
+- Or, `ab` led to `3` instead it should be `1`.
+
+- `Solution` : Use a flag to check if current character has any preceeding character. This can be either done by using string index itself or through boolean flag.

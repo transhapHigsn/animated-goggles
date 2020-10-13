@@ -49,7 +49,7 @@ def calculate_sum(n):
 # whenever constraint fails, calculate_sum is called to find maximum number of sub patterns within that length.
 # also, counter is reset to 1. finally sum of count of all sub patterns is returned.
 def create_final(s):
-    count, pattern_length, is_last_char_vowel = 0, 1, False
+    count, pattern_length, is_last_char_vowel, has_last_char = 0, 1, False, False
     for i in s:
         is_vowel = vowels.get(i, False)
 
@@ -57,10 +57,14 @@ def create_final(s):
             if pattern_length > 1:
                 count += calculate_sum(pattern_length)
                 pattern_length = 1
-        else:
+        elif has_last_char:
             pattern_length += 1
 
         is_last_char_vowel = is_vowel
+
+        # this can be also solved by using string index instead of a flag.
+        if not has_last_char:
+            has_last_char = True
 
     if pattern_length > 1:
         count += calculate_sum(pattern_length)
@@ -87,10 +91,35 @@ if __name__ == '__main__':
     c = get_count('docomo')
     print(c)
 
+    # single vowel
+    c = get_count('a')
+    print(c)
+
+    # single consonant
+    c = get_count('b')
+    print(c)
+
+    # all vowels
+    c = get_count('aeiou')
+    print(c)
+
+    # all consonants
+    c = get_count('bcdfghjklmnpqrstvwxyz')
+    print(c)
+
+    c = get_count('ab')
+    print(c)
+
+    c = get_count('ape')
+    print(c)
+
+    c = get_count('ambigious')
+    print(c)
+
     # using random.choices() 
     # generating random strings  
     res = generate_random_string(10000)
     c = get_count(res)
     print(c)
 
-    print(res)
+    # print(res)
